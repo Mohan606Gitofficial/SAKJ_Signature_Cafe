@@ -102,6 +102,10 @@ The public menu is at `/`. Staff sign-in is at `/admin/login`, and the protected
 
 Orders placed online are saved for staff to confirm; this starter does not take online payments, calculate taxes/delivery, or promise real-time inventory locking. Confirm availability, pickup/delivery details, applicable taxes, privacy obligations, and local food-business rules before accepting customers. Supabase and hosting free tiers have quotas, support limitations, and service terms: monitor usage and budget for a paid plan if the café outgrows them.
 
+## Submit the site to Google Search Console
+
+After deploying, add the URL-prefix property `https://sakj-signature-cafe.pages.dev/` in [Google Search Console](https://search.google.com/search-console/), complete Google's ownership verification, and submit `https://sakj-signature-cafe.pages.dev/sitemap.xml` under **Sitemaps**. The deployed `robots.txt` also points crawlers to this sitemap. If the hosting address changes, update both files before deploying.
+
 ## Connect a custom domain later
 
 You do not need `signature.cafe` or any custom domain to launch. If you later acquire a domain, add it in Cloudflare Pages **Custom domains**, follow Cloudflare's DNS instructions, and then update the Supabase Site URL and Redirect URLs to include the new HTTPS domain. Keep the Pages hostname as a fallback if you wish.

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sakj-signature-cafe.pages.dev/sitemap.xml
