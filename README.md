@@ -62,6 +62,8 @@ The public recruitment page is available at `/careers`. It uses the supplied caf
 
 ## 3. Deploy on a free provider subdomain
 
+The existing connected Cloudflare deployment is a Workers Static Assets project. Keep its build command as `npm run build` and deploy command as `npx wrangler deploy`; [`wrangler.jsonc`](./wrangler.jsonc) configures the Worker to publish Vite's `dist` directory and use SPA routing. Do not replace the existing Worker with a separate site or change its project name.
+
 Cloudflare Pages is the first choice for this static React/Vite site. Its free `pages.dev` subdomain includes HTTPS, supports SPA fallback through the included `public/_redirects`, and does not require purchasing a domain. Free-tier quotas and terms can change; verify Cloudflare's current Pages plan and that your intended commercial café use complies with its terms.
 
 1. Create a [GitHub](https://github.com/) account if you do not already have one. Create a new **private** repository and upload/push the contents of this folder. Do not upload `.env.local` or any secret key. If you use git from the project terminal:
