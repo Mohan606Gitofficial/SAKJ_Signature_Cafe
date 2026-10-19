@@ -78,6 +78,10 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .story-copy { max-width: 390px; }
 .story-copy h2, .section-heading h2, .visit-copy h2 { margin: 20px 0 18px; font: 500 45px/1.17 var(--serif); letter-spacing: -1.5px; }
 .story-copy > p:not(.eyebrow), .visit-copy > p:not(.eyebrow) { color: #77746c; font-size: 11px; line-height: 2; }
+.founder-credit { display: grid; justify-items: start; gap: 4px; margin: 20px 0 4px; padding-left: 13px; border-left: 2px solid #c58a65; }
+.founder-credit span { color: #9a6347; font-size: 8px; font-weight: 700; letter-spacing: 1.5px; }
+.founder-credit strong { color: var(--ink); font: 500 20px/1.25 var(--serif); }
+.founder-credit small { color: #817e73; font-size: 9px; }
 .text-link { display: inline-block; margin-top: 11px; padding-bottom: 7px; border-bottom: 1px solid #b56c49; color: #7c4d36; font-size: 10px; }
 .text-link span { padding-left: 12px; }
 
@@ -122,6 +126,8 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .site-footer > p { margin: 0; color: #817e73; font: italic 12px var(--serif); }
 .footer-thanks { color: #817e73; font: italic 11px var(--serif); }
 .footer-copy, .admin-link { color: #88857a; font-size: 8px; }
+.footer-meta { display: grid; justify-items: end; gap: 5px; }
+.developer-credit { color: #969287; font-size: 7px; letter-spacing: .2px; }
 .admin-link { border-bottom: 1px solid #c8b9a9; padding-bottom: 3px; }
 .cart-button { position: fixed; z-index: 5; right: 27px; bottom: 24px; display: flex; min-width: 270px; align-items: center; gap: 12px; padding: 13px 16px; border: 0; box-shadow: 0 7px 28px #1522172b; background: #354b39; color: #fff; text-align: left; cursor: pointer; }
 .cart-icon { font-size: 18px; }
@@ -263,7 +269,9 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
   .site-footer > p, .footer-thanks { width: 100%; }
   .site-footer > p { order: 2; font-size: 10px; }
   .footer-thanks { order: 3; }
-  .footer-copy { max-width: 95px; text-align: right; line-height: 1.5; }
+  .footer-meta { order: 4; justify-items: center; }
+  .footer-copy { max-width: 100%; text-align: center; line-height: 1.5; }
+  .admin-link { order: 5; }
   .footer-wordmark { gap: 6px; }
   .footer-wordmark .wordmark-logo { width: 40px; height: 40px; }
   .footer-wordmark strong { font-size: 12px; }

@@ -248,6 +248,11 @@ function App() {
                 comforting cup and a warm hello. Every drink is brewed with
                 love and served with a smile.
               </p>
+              <div className="founder-credit">
+                <span>FOUNDED WITH HEART</span>
+                <strong>Muthulakshi</strong>
+                <small>Founder, SAKJ Signature Café</small>
+              </div>
               <a className="text-link" href="#visit">Come say hello <span>↗</span></a>
             </div>
           </section>
@@ -321,7 +326,10 @@ function App() {
           </a>
           <p>GOOD DRINKS • GOOD VIBES • GREAT TIMES</p>
           <span className="footer-thanks">Thank you! Have a great day.</span>
-          <span className="footer-copy">© {new Date().getFullYear()} SAKJ Signature Café</span>
+          <span className="footer-meta">
+            <span className="footer-copy">© {new Date().getFullYear()} SAKJ Signature Café</span>
+            <small className="developer-credit">Website by Mohanprasath</small>
+          </span>
           <Link className="admin-link" to="/admin/login">Staff sign in</Link>
         </footer>
 
