@@ -156,10 +156,31 @@ grant select, update on public.orders to authenticated;
 
 insert into public.menu_items (id, name, description, price, category, image_url, sort_order)
 values
-  ('signature-filter', 'Signature Filter', 'Slow-brewed, full-bodied and finished with a little jaggery.', 140, 'Coffee', 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=85', 1),
-  ('velvet-cappuccino', 'Velvet Cappuccino', 'A double shot under a cloud of silky, steamed milk.', 180, 'Coffee', 'https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=900&q=85', 2),
-  ('iced-caramel', 'Iced Caramel Latte', 'Espresso, chilled milk and our house-made caramel.', 210, 'Coffee', 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=85', 3),
-  ('rose-chai', 'Rose Chai', 'Warming spiced tea with a gentle rose and cardamom finish.', 150, 'Tea & more', 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=900&q=85', 4),
-  ('pistachio-croissant', 'Pistachio Croissant', 'Flaky, golden layers filled with roasted pistachio cream.', 190, 'From the oven', 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=85', 5),
-  ('dark-chocolate-cookie', 'Dark Chocolate Cookie', 'Crisp edges, a soft centre and generous chocolate chunks.', 110, 'From the oven', 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=85', 6)
-on conflict (id) do nothing;
+  ('signature-filter', 'Normal Tea', 'Simple, comforting and perfect anytime.', 20, 'Tea & more', '', 1),
+  ('velvet-cappuccino', 'Masala Tea', 'Classic Indian masala chai made with finest spices.', 30, 'Tea & more', '', 2),
+  ('iced-caramel', 'Ginger Tea', 'Aromatic and soothing tea made with fresh ginger.', 30, 'Tea & more', '', 3),
+  ('rose-chai', 'Lemon Tea', 'Refreshing tea with a tangy lemon twist.', 30, 'Tea & more', '', 4),
+  ('pistachio-croissant', 'Green Tea', 'Light, healthy and refreshing green tea.', 30, 'Tea & more', '', 5),
+  ('dark-chocolate-cookie', 'Kashmiri Kahwa', 'Traditional Kahwa with saffron, almonds and aromatic spices.', 30, 'Tea & more', '', 6),
+  ('purple-tea-sangu-poo', 'Purple Tea (Sangu Poo)', 'Delightful and refreshing tea made from Sangu Poo.', 30, 'Tea & more', '', 7),
+  ('coffee', 'Coffee', 'Rich, aromatic coffee to uplift your mood.', 30, 'Coffee', '', 8)
+on conflict (id) do update set
+  name = excluded.name,
+  description = excluded.description,
+  price = excluded.price,
+  category = excluded.category,
+  image_url = excluded.image_url,
+  available = true,
+  sort_order = excluded.sort_order;
+
+delete from public.menu_items
+where id not in (
+  'signature-filter',
+  'velvet-cappuccino',
+  'iced-caramel',
+  'rose-chai',
+  'pistachio-croissant',
+  'dark-chocolate-cookie',
+  'purple-tea-sangu-poo',
+  'coffee'
+);

@@ -4,7 +4,7 @@ A React + TypeScript café website with a responsive menu, online ordering, Supa
 
 ## Before publishing
 
-Replace the sample café location and hours in `src/App.tsx`, confirm every menu item and price in `supabase/schema.sql`, and ensure the café has permission to use the menu photography. Menu photos and fonts in the starter are loaded from third-party image/font hosts, so replace them with café-owned images if you prefer not to rely on those services.
+Replace the sample café location and hours in `src/App.tsx` before launch. The eight café products and prices are defined in `src/lib/menu.ts` and `supabase/schema.sql`. The printed menu image is not present in this checkout, so product photos are intentionally left blank until the original artwork can be supplied. Existing hero/story photos and fonts still load from third-party hosts.
 
 The project has not been published by this repository. A hosting URL only exists after you create and deploy a Cloudflare Pages project; availability of `sakj-signature-cafe.pages.dev` cannot be reserved or guaranteed in advance.
 
@@ -21,13 +21,13 @@ The project has not been published by this repository. A hosting URL only exists
 
 4. Open the local address printed in the terminal (normally `http://localhost:5173`). Press `Ctrl+C` in the terminal to stop the local server.
 
-The public site can be previewed without Supabase; the starter menu is shown. Orders and admin sign-in need Supabase configuration before they work.
+The public site can be previewed without Supabase; the eight-item SAKJ menu is shown. Orders and admin sign-in need Supabase configuration before they work.
 
 ## 2. Create the free Supabase database and admin account
 
 1. Create an account at [supabase.com](https://supabase.com/) and create a project on the free plan. Choose a strong database password and save it securely. Supabase free projects may be paused after inactivity and have usage limits; check the current Supabase pricing and service terms before launch.
 2. In the Supabase project open **SQL Editor → New query**.
-3. Open this project's `supabase/schema.sql`, copy the whole file into the SQL Editor, and choose **Run**. This creates the menu, orders, and admin tables; enables row-level security; inserts the example menu; and provides a database function that calculates order totals using current database prices.
+3. Open this project's `supabase/schema.sql`, copy the whole file into the SQL Editor, and choose **Run**. This creates the menu, orders, and admin tables; enables row-level security; inserts the eight SAKJ menu items; and provides a database function that calculates order totals using current database prices.
 4. Open **Authentication → Users → Add user**. Create the café administrator with an email and a strong password. Do not enable public sign-ups.
 5. Open the new user's details and copy their **User UID**.
 6. In **SQL Editor → New query**, replace `PASTE-USER-UID-HERE` in this statement with the copied UID, then run it:
@@ -47,6 +47,14 @@ The public site can be previewed without Supabase; the starter menu is shown. Or
    ```
 
    In Windows PowerShell, restart with `npm.cmd run dev` after changing environment variables.
+
+### Update an existing Supabase project
+
+Before deploying this menu update, open **SQL Editor → New query**, copy the contents of `supabase/menu_migration.sql`, and choose **Run**. It updates the six existing sample product IDs, adds the two missing café products, and removes other menu rows so the public menu contains exactly these eight items. This changes menu rows only; order records and their saved item details are not changed. If you have added custom menu products that you want to keep, export them before running the migration.
+
+### Add the printed menu photographs
+
+The supplied JPEG is not in the project. Place the original file named `WhatsApp Image 2026-10-16 at 10.54.53 AM (1).jpeg` in `public\menu\reference\`. Crop each of its eight product photos into an individual optimized image, excluding the poster text, prices, and decorative borders. Do not use the full poster as a product photo. Save the individual image assets under `public\menu\products\`, then set each corresponding `image_url` to its deployed root-relative path (for example, `/menu/products/<your-chosen-file-name>.webp`) in `src/lib/menu.ts`, `supabase/schema.sql`, and `supabase/menu_migration.sql`. Run the migration again after updating it so the Supabase menu receives those image paths. No image-upload feature exists in the current admin dashboard.
 
 ## 3. Deploy on a free provider subdomain
 

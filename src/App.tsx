@@ -195,18 +195,17 @@ function App() {
         <main>
           <section className="hero">
             <div className="hero-copy">
-              <p className="eyebrow"><span /> YOUR EVERYDAY LITTLE ESCAPE</p>
-              <h1>Coffee made<br />a little more <em>personal.</em></h1>
+              <p className="eyebrow"><span /> GOOD TEA. GOOD PEOPLE. GOOD MOMENTS.</p>
+              <h1>A good cup.<br />A better <em>moment.</em></h1>
               <p className="hero-description">
-                Thoughtful pours, oven-warm bakes, and the kind of welcome that
-                makes you want to stay a little longer.
+                Brewed with love, served with smile.
               </p>
               <div className="hero-actions">
                 <a className="button button-dark" href="#menu">Explore the menu <span>↓</span></a>
-                <span className="hero-note"><span className="star">✳</span> Made fresh, made with love</span>
+                <span className="hero-note"><span className="star">✳</span> GOOD TEA. GOOD PEOPLE. GOOD MOMENTS.</span>
               </div>
               <div className="hero-stamp" aria-hidden="true">
-                <span>GOOD<br />THINGS<br />BREWING</span>
+                <span>BREWED<br />WITH<br />LOVE</span>
                 <span className="stamp-star">✳</span>
               </div>
             </div>
@@ -222,7 +221,7 @@ function App() {
           </section>
 
           <section className="ticker" aria-label="Café motto">
-            <div>GOOD COFFEE, GOOD COMPANY <span>✳</span> A LITTLE MOMENT FOR YOU <span>✳</span> GOOD COFFEE, GOOD COMPANY <span>✳</span> A LITTLE MOMENT FOR YOU <span>✳</span></div>
+            <div>GOOD DRINKS • GOOD VIBES • GREAT TIMES <span>✳</span> BREWED WITH LOVE, SERVED WITH SMILE <span>✳</span> GOOD DRINKS • GOOD VIBES • GREAT TIMES <span>✳</span> BREWED WITH LOVE, SERVED WITH SMILE <span>✳</span></div>
           </section>
 
           <section className="story-section section-wrap" id="story">
@@ -231,13 +230,12 @@ function App() {
               <div className="story-image-note">A pause, poured just for you.</div>
             </div>
             <div className="story-copy">
-              <p className="eyebrow">A TABLE WITH YOUR NAME ON IT</p>
-              <h2>Not just a coffee.<br />A <em>feeling.</em></h2>
+              <p className="eyebrow">GOOD TEA. GOOD PEOPLE. GOOD MOMENTS.</p>
+              <h2>Not just a cup.<br />A <em>feeling.</em></h2>
               <p>
-                SAKJ Signature Café is your neighbourhood corner for unhurried
-                mornings and one-more-cup afternoons. We believe the little
-                things—a carefully pulled shot, a warm hello, a pastry still
-                warm from the oven—make a day feel different.
+                SAKJ Signature Café is your neighbourhood corner for a
+                comforting cup and a warm hello. Every drink is brewed with
+                love and served with a smile.
               </p>
               <a className="text-link" href="#visit">Come say hello <span>↗</span></a>
             </div>
@@ -246,8 +244,8 @@ function App() {
           <section className="menu-section" id="menu">
             <div className="section-wrap">
               <div className="section-heading">
-                <div><p className="eyebrow">GOOD THINGS, ON THE MENU</p><h2>Your next <em>favourite.</em></h2></div>
-                <p>Small-batch, made fresh, and always worth the little detour.</p>
+                <div><p className="eyebrow">BREWED WITH LOVE, SERVED WITH SMILE</p><h2>Tea time, <em>your way.</em></h2></div>
+                <p>Eight café favourites, made for good moments together.</p>
               </div>
               <div className="category-tabs" role="tablist" aria-label="Menu categories">
                 {menuCategories.map((item) => (
@@ -265,8 +263,12 @@ function App() {
               <div className="menu-grid">
                 {visibleMenu.map((item) => (
                   <article className="menu-card" key={item.id}>
-                    <div className="menu-card-image">
-                      <img src={item.image_url} alt={item.name} loading="lazy" />
+                    <div
+                      className={item.image_url ? "menu-card-image" : "menu-card-image menu-card-image-placeholder"}
+                      role={item.image_url ? undefined : "img"}
+                      aria-label={item.image_url ? undefined : `Photo of ${item.name} not added yet`}
+                    >
+                      {item.image_url && <img src={item.image_url} alt={item.name} loading="lazy" />}
                       <span className="menu-category">{item.category}</span>
                     </div>
                     <div className="menu-card-content">
@@ -280,7 +282,7 @@ function App() {
                 ))}
                 {!visibleMenu.length && <p className="empty-menu">More good things are on their way.</p>}
               </div>
-              <div className="menu-footnote"><span>✳</span> Have an allergy or a special request? Let us know when you order.</div>
+              <div className="menu-footnote"><span>✳</span> GOOD DRINKS • GOOD VIBES • GREAT TIMES</div>
             </div>
           </section>
 
@@ -306,7 +308,8 @@ function App() {
             <img className="wordmark-logo" src="/sakj-signature-cafe-logo.png" alt="" />
             <span><strong>SAKJ</strong><small>SIGNATURE CAFÉ</small></span>
           </a>
-          <p>A little coffee, a lot of heart.</p>
+          <p>GOOD DRINKS • GOOD VIBES • GREAT TIMES</p>
+          <span className="footer-thanks">Thank you! Have a great day.</span>
           <span className="footer-copy">© {new Date().getFullYear()} SAKJ Signature Café</span>
           <Link className="admin-link" to="/admin/login">Staff sign in</Link>
         </footer>
