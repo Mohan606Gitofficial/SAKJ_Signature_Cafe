@@ -26,6 +26,207 @@ interface Order {
   created_at: string;
 }
 
+const instagramUrl = "https://www.instagram.com/sakj_siganature_cafe/";
+
+const hiringPositions = [
+  {
+    title: "Café Staff",
+    description: "Assist in daily café operations.",
+    icon: "✳",
+  },
+  {
+    title: "Tea & Coffee Maker (Barista)",
+    description: "Prepare and serve a variety of tea, coffee & beverages.",
+    icon: "☕",
+  },
+  {
+    title: "Kitchen Assistant",
+    description: "Support in food preparation and kitchen operations.",
+    icon: "♨",
+  },
+  {
+    title: "Service Staff",
+    description: "Serve customers with a smile and ensure a great experience.",
+    icon: "♡",
+  },
+  {
+    title: "Cashier",
+    description: "Billing, order management and customer service.",
+    icon: "₹",
+  },
+];
+
+const hiringEligibility = [
+  { icon: "✳", text: "Ladies & Gents." },
+  { icon: "20–40", text: "Age 20–40." },
+  { icon: "♡", text: "Friendly attitude and good communication." },
+  { icon: "↗", text: "Willing to learn and grow." },
+  { icon: "✓", text: "Freshers & experienced candidates welcome." },
+];
+
+function CareersPage() {
+  const [selectedPosition, setSelectedPosition] = useState("");
+
+  function choosePosition(position: string) {
+    setSelectedPosition(position);
+    document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  return (
+    <div className="careers-page">
+      <header className="site-header careers-header">
+        <Link className="wordmark" to="/" aria-label="SAKJ Signature Café home">
+          <img className="wordmark-logo" src="/sakj-signature-cafe-logo.png" alt="" />
+          <span><strong>SAKJ</strong><small>SIGNATURE CAFÉ</small></span>
+        </Link>
+        <nav className="main-nav" aria-label="Main navigation">
+          <Link to="/">Home</Link>
+          <Link to="/#menu">The menu</Link>
+          <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>
+        </nav>
+        <a className="header-cta" href="#positions">Explore opportunities <span aria-hidden="true">↓</span></a>
+      </header>
+
+      <main>
+        <section className="careers-hero">
+          <div className="careers-hero-copy">
+            <p className="eyebrow"><span /> COME GROW WITH US</p>
+            <h1>WE'RE <em>HIRING!</em></h1>
+            <h2>Join the SAKJ Signature Café Family</h2>
+            <p className="careers-hero-description">
+              We are looking for passionate, energetic and dedicated people to join our growing café team.
+            </p>
+            <div className="careers-hero-actions">
+              <a className="button button-dark" href="#positions">Explore Open Positions <span>↓</span></a>
+              <a className="button button-outline" href="#apply">Apply Now <span>↗</span></a>
+            </div>
+            <div className="careers-hero-note"><span>✳</span> GOOD PEOPLE. GOOD WORK. GOOD MOMENTS.</div>
+          </div>
+          <div className="careers-hero-image-wrap">
+            <img src="/careers/hiring-team.png" alt="A welcoming café team serving guests together" />
+            <span className="careers-image-caption">A place to learn, grow and make someone's day.</span>
+            <span className="careers-image-seal">GOOD<br />PEOPLE<br />WELCOME</span>
+          </div>
+        </section>
+
+        <section className="careers-intro section-wrap">
+          <div className="careers-intro-image">
+            <img src="/careers/hiring-cafe.png" alt="Warm, sunlit café interior with inviting seating" loading="lazy" />
+          </div>
+          <div className="careers-intro-copy">
+            <p className="eyebrow">A LITTLE MORE THAN A WORKPLACE</p>
+            <h2>Make good days,<br /><em>together.</em></h2>
+            <p>Join a friendly team where every cup, every welcome and every shared moment helps make SAKJ Signature Café feel like home.</p>
+            <a className="text-link" href="#positions">Find your place here <span>↘</span></a>
+          </div>
+        </section>
+
+        <section className="positions-section" id="positions">
+          <div className="section-wrap">
+            <div className="section-heading careers-section-heading">
+              <div>
+                <p className="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+                <h2>Open <em>positions.</em></h2>
+              </div>
+              <p>Five ways to be part of the SAKJ Signature Café family.</p>
+            </div>
+            <div className="positions-grid">
+              {hiringPositions.map((position, index) => (
+                <article className="position-card" key={position.title}>
+                  <div className="position-card-top">
+                    <span className="position-icon" aria-hidden="true">{position.icon}</span>
+                    <span className="position-number">0{index + 1}</span>
+                  </div>
+                  <h3>{position.title}</h3>
+                  <p>{position.description}</p>
+                  <div className="position-eligibility">
+                    <span>FRESHERS &amp; EXPERIENCED</span>
+                    <span>AGE 20–40</span>
+                  </div>
+                  <button className="position-apply" onClick={() => choosePosition(position.title)}>
+                    Apply for This Position <span aria-hidden="true">↗</span>
+                  </button>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="eligibility-section section-wrap">
+          <div className="eligibility-heading">
+            <p className="eyebrow">A WELCOME PLACE FOR YOU</p>
+            <h2>WHO CAN <em>APPLY?</em></h2>
+            <p>We'd love to hear from people who bring warmth, curiosity and a willingness to grow.</p>
+          </div>
+          <div className="eligibility-grid">
+            {hiringEligibility.map((item) => (
+              <div className="eligibility-item" key={item.text}>
+                <span aria-hidden="true">{item.icon}</span>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="apply-section" id="apply">
+          <div className="apply-card">
+            <p className="eyebrow">LET'S START A CONVERSATION</p>
+            <h2>Ready to join <em>the family?</em></h2>
+            <p>Choose a position, then message us on Instagram and tell us a little about yourself.</p>
+            <label className="position-select-label" htmlFor="application-position">Position you're interested in</label>
+            <select
+              id="application-position"
+              value={selectedPosition}
+              onChange={(event) => setSelectedPosition(event.target.value)}
+            >
+              <option value="">Choose an open position</option>
+              {hiringPositions.map((position) => (
+                <option value={position.title} key={position.title}>{position.title}</option>
+              ))}
+            </select>
+            <p className="application-note" aria-live="polite">
+              {selectedPosition
+                ? `When you message us, please mention: ${selectedPosition}.`
+                : "Select a position to get started. You can also apply directly from a position card."}
+            </p>
+            {selectedPosition ? (
+              <a className="button button-dark apply-instagram" href={instagramUrl} target="_blank" rel="noreferrer">
+                Continue to Instagram <span aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <button className="button button-dark apply-instagram" disabled>
+                Select a position to continue <span aria-hidden="true">↗</span>
+              </button>
+            )}
+            <p className="instagram-handle">
+              <span aria-hidden="true">◎</span>
+              <a href={instagramUrl} target="_blank" rel="noreferrer">Follow @sakj_siganature_cafe</a>
+            </p>
+          </div>
+          <div className="apply-team-image">
+            <img src="/careers/hiring-staff.png" alt="A diverse café team ready to welcome new colleagues" loading="lazy" />
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer careers-footer">
+        <Link className="wordmark footer-wordmark" to="/">
+          <img className="wordmark-logo" src="/sakj-signature-cafe-logo.png" alt="" />
+          <span><strong>SAKJ</strong><small>SIGNATURE CAFÉ</small></span>
+        </Link>
+        <p>GOOD DRINKS • GOOD VIBES • GREAT TIMES</p>
+        <span className="footer-thanks">Thank you! Have a great day.</span>
+        <span className="footer-meta">
+          <span className="footer-copy">© {new Date().getFullYear()} SAKJ Signature Café</span>
+          <small className="developer-credit">Website by Mohanprasath</small>
+        </span>
+        <a className="instagram-footer-link" href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>
+        <Link className="admin-link" to="/admin/login">Staff sign in</Link>
+      </footer>
+    </div>
+  );
+}
+
 function App() {
   const [menu, setMenu] = useState<MenuItem[]>(starterMenu);
   const [cart, setCart] = useState<Cart>({});
@@ -162,6 +363,7 @@ function App() {
         path="/"
         element={renderHomePage()}
       />
+      <Route path="/careers" element={<CareersPage />} />
       <Route
         path="/admin/login"
         element={
@@ -197,6 +399,7 @@ function App() {
             <a href="#story">Our story</a>
             <a href="#menu">The menu</a>
             <a href="#visit">Find us</a>
+            <Link to="/careers">Careers</Link>
           </nav>
           <a className="header-cta" href="#menu">
             Order something lovely <span aria-hidden="true">↗</span>
@@ -250,7 +453,7 @@ function App() {
               </p>
               <div className="founder-credit">
                 <span>FOUNDED WITH HEART</span>
-                <strong>Muthulakshi</strong>
+                <strong>Muthulakshmi</strong>
                 <small>Founder, SAKJ Signature Café</small>
               </div>
               <a className="text-link" href="#visit">Come say hello <span>↗</span></a>
@@ -330,6 +533,8 @@ function App() {
             <span className="footer-copy">© {new Date().getFullYear()} SAKJ Signature Café</span>
             <small className="developer-credit">Website by Mohanprasath</small>
           </span>
+          <a className="instagram-footer-link" href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>
+          <Link className="careers-footer-link" to="/careers">We're hiring ↗</Link>
           <Link className="admin-link" to="/admin/login">Staff sign in</Link>
         </footer>
 

@@ -56,6 +56,10 @@ Before deploying this menu update, open **SQL Editor → New query**, copy the c
 
 Each of the eight supplied drink photos is included individually under `public/menu/products/` in menu order. Their root-relative URLs are set in `src/lib/menu.ts`, `supabase/schema.sql`, and `supabase/menu_migration.sql`. The site uses the local product-photo path as a fallback if the Supabase row's `image_url` is blank. Run the migration when applying the menu update to store these photo paths in Supabase as well. No image-upload feature exists in the current admin dashboard.
 
+### Careers and Instagram
+
+The public recruitment page is available at `/careers`. It uses the supplied café/team photographs, lists the five open positions and eligibility information, and directs applications to Instagram. Applicants choose a position and are asked to mention it when messaging the café at [`@sakj_siganature_cafe`](https://www.instagram.com/sakj_siganature_cafe/). The same Instagram profile is linked from the site footer. There is no application form or hiring backend in this project.
+
 ## 3. Deploy on a free provider subdomain
 
 Cloudflare Pages is the first choice for this static React/Vite site. Its free `pages.dev` subdomain includes HTTPS, supports SPA fallback through the included `public/_redirects`, and does not require purchasing a domain. Free-tier quotas and terms can change; verify Cloudflare's current Pages plan and that your intended commercial café use complies with its terms.
