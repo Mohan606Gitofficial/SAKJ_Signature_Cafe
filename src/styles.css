@@ -1,5 +1,5 @@
 :root {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Outfit", sans-serif;
   color: #25241f;
   background: #f8f6f0;
   font-synthesis: none;
@@ -11,7 +11,7 @@
   --green: #354b39;
   --orange: #c46b43;
   --line: #e8e4d9;
-  --serif: "Playfair Display", Georgia, serif;
+  --serif: "Fraunces", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -19,6 +19,7 @@ html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; }
 button, input, textarea, select { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, select:focus-visible { outline: 2px solid #aa7744; outline-offset: 3px; }
 a { color: inherit; text-decoration: none; }
 button { color: inherit; }
 img { display: block; max-width: 100%; }
@@ -33,7 +34,10 @@ img { display: block; max-width: 100%; }
 .wordmark small { display: block; margin-top: 2px; font-size: 8px; letter-spacing: 2px; }
 .main-nav { display: flex; gap: 39px; margin-left: 56px; }
 .main-nav a { color: #59574f; font-size: 12px; transition: color .2s; }
+.main-nav .instagram-nav-link { display: inline-flex; align-items: center; gap: 7px; color: #85513b; }
 .main-nav a:hover, .admin-link:hover { color: var(--orange); }
+.instagram-nav-link svg, .hero-instagram-link svg, .instagram-contact-link > svg,
+.instagram-footer-link svg, .instagram-handle svg { flex: 0 0 auto; }
 .header-cta { border-bottom: 1px solid #a95e3f; padding: 8px 0; color: #804832; font-size: 11px; }
 .header-cta span { padding-left: 10px; }
 
@@ -47,6 +51,8 @@ h1, h2, h3, p { margin-top: 0; }
 h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .hero-description { max-width: 405px; margin: 20px 0 28px; color: #747168; font-size: 12px; line-height: 1.9; }
 .hero-actions { display: flex; align-items: center; gap: 22px; }
+.hero-instagram-link { display: inline-flex; align-items: center; gap: 8px; color: #76513d; font-size: 10px; font-weight: 600; transition: color .2s, transform .2s; }
+.hero-instagram-link:hover { color: #bd6445; transform: translateY(-2px); }
 .button { min-height: 45px; display: inline-flex; align-items: center; justify-content: center; gap: 25px; padding: 0 18px; border: 0; font-size: 10px; font-weight: 600; cursor: pointer; transition: background .2s, transform .2s; }
 .button:hover { transform: translateY(-1px); }
 .button:disabled { opacity: .55; cursor: not-allowed; transform: none; }
@@ -78,6 +84,9 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .story-copy { max-width: 390px; }
 .story-copy h2, .section-heading h2, .visit-copy h2 { margin: 20px 0 18px; font: 500 45px/1.17 var(--serif); letter-spacing: -1.5px; }
 .story-copy > p:not(.eyebrow), .visit-copy > p:not(.eyebrow) { color: #77746c; font-size: 11px; line-height: 2; }
+.story-brand-mark { display: inline-flex; align-items: center; gap: 11px; margin: 2px 0 19px; color: #64523e; font: 600 11px var(--serif); }
+.story-brand-mark img { width: 48px; height: 48px; border: 1px solid #d6c29a; border-radius: 6px; background: #21160e; object-fit: contain; }
+.story-brand-mark small { display: block; margin-top: 4px; color: #96724b; font: 600 7px "Outfit", sans-serif; letter-spacing: 1px; }
 .founder-credit { display: grid; justify-items: start; gap: 4px; margin: 20px 0 4px; padding-left: 13px; border-left: 2px solid #c58a65; }
 .founder-credit span { color: #9a6347; font-size: 8px; font-weight: 700; letter-spacing: 1.5px; }
 .founder-credit strong { color: var(--ink); font: 500 20px/1.25 var(--serif); }
@@ -119,6 +128,11 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .visit-details strong, .visit-details small { display: block; }
 .visit-details strong { font-size: 9px; }
 .visit-details small { margin-top: 4px; color: #88847a; font-size: 8px; }
+.instagram-contact-link { width: min(100%, 310px); display: flex; align-items: center; gap: 12px; margin-top: 26px; padding: 13px 14px; border: 1px solid #e0d4c2; border-radius: 4px; background: #fbf8f1; color: #82513b; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.instagram-contact-link:hover { transform: translateY(-2px); border-color: #c69d78; box-shadow: 0 9px 24px #47331b12; }
+.instagram-contact-link > span:nth-child(2) { flex: 1; font-size: 10px; font-weight: 600; }
+.instagram-contact-link small { display: block; margin-top: 3px; color: #8c8376; font-size: 8px; font-weight: 400; }
+.instagram-contact-arrow { font-size: 14px; }
 .visit-image { height: 351px; position: relative; }
 .visit-image::after { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.34), transparent 30%); content: ""; }
 .visit-image-label { position: absolute; z-index: 1; bottom: 18px; left: 20px; color: #fff; font-size: 8px; letter-spacing: 1.4px; }
@@ -130,6 +144,7 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .developer-credit { color: #969287; font-size: 7px; letter-spacing: .2px; }
 .admin-link { border-bottom: 1px solid #c8b9a9; padding-bottom: 3px; }
 .careers-footer-link, .instagram-footer-link { color: #77746c; font-size: 8px; transition: color .2s; }
+.instagram-footer-link { display: inline-flex; align-items: center; gap: 6px; }
 .careers-footer-link:hover, .instagram-footer-link:hover { color: var(--orange); }
 .cart-button { position: fixed; z-index: 5; right: 27px; bottom: 24px; display: flex; min-width: 270px; align-items: center; gap: 12px; padding: 13px 16px; border: 0; box-shadow: 0 7px 28px #1522172b; background: #354b39; color: #fff; text-align: left; cursor: pointer; }
 .cart-icon { font-size: 18px; }
@@ -245,6 +260,10 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .careers-hero-image-wrap > img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; }
 .careers-image-caption { position: absolute; z-index: 1; right: 9%; bottom: 28px; left: 8%; color: #fffaf0; font: italic 14px var(--serif); }
 .careers-image-seal { position: absolute; z-index: 1; top: 31px; right: 32px; display: grid; width: 91px; height: 91px; place-content: center; border: 1px solid #dbc39b; border-radius: 50%; background: #f5e8c8; color: #674d32; font-size: 8px; font-weight: 700; letter-spacing: 1.6px; line-height: 1.5; text-align: center; transform: rotate(8deg); }
+.careers-brand-mark { position: absolute; z-index: 1; right: 31px; bottom: 79px; width: 72px; height: 72px; overflow: hidden; border: 2px solid #e6d4b0; border-radius: 12px; background: #21160e; box-shadow: 0 7px 22px #17110b35; animation: brand-float 4s ease-in-out infinite; }
+.careers-brand-mark img { width: 100%; height: 100%; padding: 2px; object-fit: contain; }
+.careers-hero-note a { display: inline-flex; align-items: center; gap: 5px; margin-left: 16px; color: #87553b; letter-spacing: .3px; transition: color .2s; }
+.careers-hero-note a:hover { color: #bd6445; }
 .careers-intro { display: grid; grid-template-columns: 1fr .8fr; align-items: center; gap: 11%; padding-top: 92px; padding-bottom: 92px; }
 .careers-intro-image { height: 320px; overflow: hidden; background: #e7dfd1; }
 .careers-intro-image img { width: 100%; height: 100%; object-fit: cover; }
@@ -256,10 +275,11 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .careers-section-heading { margin-bottom: 30px; }
 .careers-section-heading h2 { color: #332720; }
 .positions-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
-.position-card { min-height: 250px; display: flex; flex-direction: column; padding: 21px; border: 1px solid #e4dccd; background: #fbf9f3; box-shadow: 0 8px 24px rgba(61, 46, 30, .035); transition: transform .2s, box-shadow .2s; }
+.position-card { min-height: 250px; display: flex; flex-direction: column; padding: 21px; border: 1px solid #e4dccd; border-radius: 5px; background: #fbf9f3; box-shadow: 0 8px 24px rgba(61, 46, 30, .035); transition: transform .25s, box-shadow .25s, border-color .25s; }
 .position-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(61, 46, 30, .08); }
+.position-card:hover .position-icon { transform: rotate(-8deg) scale(1.08); }
 .position-card-top { display: flex; align-items: center; justify-content: space-between; }
-.position-icon { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid #e0d2ba; border-radius: 50%; background: #f5efe2; color: #82613e; font: 500 16px var(--serif); }
+.position-icon { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid #e0d2ba; border-radius: 50%; background: #f5efe2; color: #82613e; font: 500 16px var(--serif); transition: transform .25s; }
 .position-number { color: #b2a58f; font: italic 13px var(--serif); }
 .position-card h3 { margin: 17px 0 8px; color: #362b22; font: 600 20px/1.3 var(--serif); }
 .position-card > p { min-height: 42px; margin: 0 0 15px; color: #777168; font-size: 13px; line-height: 1.8; }
@@ -292,6 +312,22 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .apply-team-image img { width: 100%; height: 100%; object-fit: cover; }
 .careers-footer { gap: 16px; }
 .careers-footer > p { white-space: nowrap; }
+
+.reveal-on-scroll { opacity: 1; transform: none; }
+.motion-ready .reveal-on-scroll:not(.is-visible) { opacity: 0; transform: translateY(22px); }
+.motion-ready .hero-image-wrap.reveal-on-scroll:not(.is-visible),
+.motion-ready .careers-hero-image-wrap.reveal-on-scroll:not(.is-visible) { transform: translateX(18px); }
+.reveal-on-scroll.is-visible { opacity: 1; transform: translate(0, 0); transition: opacity .65s ease, transform .65s cubic-bezier(.2, .7, .2, 1); }
+.position-card.reveal-on-scroll.is-visible:hover { transform: translateY(-3px); }
+.position-card:nth-child(2), .menu-card:nth-child(2), .eligibility-item:nth-child(2) { transition-delay: 70ms; }
+.position-card:nth-child(3), .menu-card:nth-child(3), .eligibility-item:nth-child(3) { transition-delay: 140ms; }
+.position-card:nth-child(4), .menu-card:nth-child(4), .eligibility-item:nth-child(4) { transition-delay: 210ms; }
+.position-card:nth-child(5), .menu-card:nth-child(5), .eligibility-item:nth-child(5) { transition-delay: 280ms; }
+.menu-card:nth-child(6) { transition-delay: 350ms; }
+.menu-card:nth-child(7) { transition-delay: 420ms; }
+.menu-card:nth-child(8) { transition-delay: 490ms; }
+.ticker div { will-change: transform; }
+@keyframes brand-float { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-7px) rotate(2deg); } }
 
 @media (min-width: 1500px) { .hero { padding-left: max(10.3%, calc((100vw - 1200px) / 2)); } }
 @media (max-width: 800px) {
@@ -369,6 +405,8 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
   .careers-hero-actions .button { gap: 8px; padding: 0 12px; font-size: 9px; }
   .careers-hero-image-wrap { min-height: 350px; }
   .careers-image-seal { top: 18px; right: 18px; width: 75px; height: 75px; font-size: 7px; }
+  .careers-brand-mark { right: 20px; bottom: 66px; width: 58px; height: 58px; }
+  .careers-hero-note a { margin-left: 0; }
   .careers-intro { grid-template-columns: 1fr; gap: 30px; padding-top: 58px; padding-bottom: 58px; }
   .careers-intro-image { height: 240px; }
   .careers-intro-copy h2 { font-size: 36px; }
@@ -385,6 +423,7 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
   .apply-card h2 { font-size: 32px; }
   .apply-team-image { min-height: 260px; height: 260px; }
   .careers-footer { row-gap: 12px; }
+  .instagram-contact-link { width: 100%; }
   .cart-button { right: 12px; bottom: 12px; left: 12px; min-width: 0; }
   .order-modal { padding: 30px 22px; }
   .admin-card { padding: 35px 25px; }
@@ -404,4 +443,9 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
   .order-card-footer { flex-wrap: wrap; gap: 10px; }
   .order-card-footer .customer-phone { flex-basis: 55%; }
   .order-card-footer select { margin-left: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .motion-ready .reveal-on-scroll:not(.is-visible) { opacity: 1; transform: none; }
 }

@@ -28,6 +28,26 @@ interface Order {
 
 const instagramUrl = "https://www.instagram.com/sakj_siganature_cafe/";
 
+function InstagramIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 const hiringPositions = [
   {
     title: "Café Staff",
@@ -82,14 +102,16 @@ function CareersPage() {
         <nav className="main-nav" aria-label="Main navigation">
           <Link to="/">Home</Link>
           <Link to="/#menu">The menu</Link>
-          <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>
+          <a className="instagram-nav-link" href={instagramUrl} target="_blank" rel="noreferrer">
+            <InstagramIcon size={15} /> Instagram
+          </a>
         </nav>
         <a className="header-cta" href="#positions">Explore opportunities <span aria-hidden="true">↓</span></a>
       </header>
 
       <main>
         <section className="careers-hero">
-          <div className="careers-hero-copy">
+          <div className="careers-hero-copy reveal-on-scroll">
             <p className="eyebrow"><span /> COME GROW WITH US</p>
             <h1>WE'RE <em>HIRING!</em></h1>
             <h2>Join the SAKJ Signature Café Family</h2>
@@ -100,20 +122,28 @@ function CareersPage() {
               <a className="button button-dark" href="#positions">Explore Open Positions <span>↓</span></a>
               <a className="button button-outline" href="#apply">Apply Now <span>↗</span></a>
             </div>
-            <div className="careers-hero-note"><span>✳</span> GOOD PEOPLE. GOOD WORK. GOOD MOMENTS.</div>
+            <div className="careers-hero-note">
+              <span>✳</span> GOOD PEOPLE. GOOD WORK. GOOD MOMENTS.
+              <a href={instagramUrl} target="_blank" rel="noreferrer">
+                <InstagramIcon size={14} /> Message us
+              </a>
+            </div>
           </div>
-          <div className="careers-hero-image-wrap">
+          <div className="careers-hero-image-wrap reveal-on-scroll">
             <img src="/careers/hiring-team.png" alt="A welcoming café team serving guests together" />
             <span className="careers-image-caption">A place to learn, grow and make someone's day.</span>
             <span className="careers-image-seal">GOOD<br />PEOPLE<br />WELCOME</span>
+            <span className="careers-brand-mark">
+              <img src="/sakj-signature-cafe-logo.png" alt="SAKJ Signature Café logo" />
+            </span>
           </div>
         </section>
 
         <section className="careers-intro section-wrap">
-          <div className="careers-intro-image">
+          <div className="careers-intro-image reveal-on-scroll">
             <img src="/careers/hiring-cafe.png" alt="Warm, sunlit café interior with inviting seating" loading="lazy" />
           </div>
-          <div className="careers-intro-copy">
+          <div className="careers-intro-copy reveal-on-scroll">
             <p className="eyebrow">A LITTLE MORE THAN A WORKPLACE</p>
             <h2>Make good days,<br /><em>together.</em></h2>
             <p>Join a friendly team where every cup, every welcome and every shared moment helps make SAKJ Signature Café feel like home.</p>
@@ -123,7 +153,7 @@ function CareersPage() {
 
         <section className="positions-section" id="positions">
           <div className="section-wrap">
-            <div className="section-heading careers-section-heading">
+            <div className="section-heading careers-section-heading reveal-on-scroll">
               <div>
                 <p className="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
                 <h2>Open <em>positions.</em></h2>
@@ -132,7 +162,7 @@ function CareersPage() {
             </div>
             <div className="positions-grid">
               {hiringPositions.map((position, index) => (
-                <article className="position-card" key={position.title}>
+                <article className="position-card reveal-on-scroll" key={position.title}>
                   <div className="position-card-top">
                     <span className="position-icon" aria-hidden="true">{position.icon}</span>
                     <span className="position-number">0{index + 1}</span>
@@ -153,14 +183,14 @@ function CareersPage() {
         </section>
 
         <section className="eligibility-section section-wrap">
-          <div className="eligibility-heading">
+          <div className="eligibility-heading reveal-on-scroll">
             <p className="eyebrow">A WELCOME PLACE FOR YOU</p>
             <h2>WHO CAN <em>APPLY?</em></h2>
             <p>We'd love to hear from people who bring warmth, curiosity and a willingness to grow.</p>
           </div>
           <div className="eligibility-grid">
             {hiringEligibility.map((item) => (
-              <div className="eligibility-item" key={item.text}>
+              <div className="eligibility-item reveal-on-scroll" key={item.text}>
                 <span aria-hidden="true">{item.icon}</span>
                 <p>{item.text}</p>
               </div>
@@ -169,7 +199,7 @@ function CareersPage() {
         </section>
 
         <section className="apply-section" id="apply">
-          <div className="apply-card">
+          <div className="apply-card reveal-on-scroll">
             <p className="eyebrow">LET'S START A CONVERSATION</p>
             <h2>Ready to join <em>the family?</em></h2>
             <p>Choose a position, then message us on Instagram and tell us a little about yourself.</p>
@@ -191,19 +221,19 @@ function CareersPage() {
             </p>
             {selectedPosition ? (
               <a className="button button-dark apply-instagram" href={instagramUrl} target="_blank" rel="noreferrer">
-                Continue to Instagram <span aria-hidden="true">↗</span>
+                <InstagramIcon /> Continue to Instagram <span aria-hidden="true">↗</span>
               </a>
             ) : (
               <button className="button button-dark apply-instagram" disabled>
-                Select a position to continue <span aria-hidden="true">↗</span>
+                <InstagramIcon /> Select a position to continue <span aria-hidden="true">↗</span>
               </button>
             )}
             <p className="instagram-handle">
-              <span aria-hidden="true">◎</span>
+              <InstagramIcon size={16} />
               <a href={instagramUrl} target="_blank" rel="noreferrer">Follow @sakj_siganature_cafe</a>
             </p>
           </div>
-          <div className="apply-team-image">
+          <div className="apply-team-image reveal-on-scroll">
             <img src="/careers/hiring-staff.png" alt="A diverse café team ready to welcome new colleagues" loading="lazy" />
           </div>
         </section>
@@ -220,7 +250,9 @@ function CareersPage() {
           <span className="footer-copy">© {new Date().getFullYear()} SAKJ Signature Café</span>
           <small className="developer-credit">Website by Mohanprasath</small>
         </span>
-        <a className="instagram-footer-link" href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>
+        <a className="instagram-footer-link" href={instagramUrl} target="_blank" rel="noreferrer">
+          <InstagramIcon size={15} /> Instagram
+        </a>
         <Link className="admin-link" to="/admin/login">Staff sign in</Link>
       </footer>
     </div>
@@ -235,6 +267,47 @@ function App() {
   const [orderOpen, setOrderOpen] = useState(false);
   const [orderMessage, setOrderMessage] = useState("");
   const [orderBusy, setOrderBusy] = useState(false);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reducedMotion.matches || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -32px 0px" },
+    );
+
+    function observeRevealElements(node: ParentNode) {
+      if (node instanceof Element && node.matches(".reveal-on-scroll")) {
+        observer.observe(node);
+      }
+      node.querySelectorAll?.(".reveal-on-scroll").forEach((element) => observer.observe(element));
+    }
+
+    observeRevealElements(document);
+    document.documentElement.classList.add("motion-ready");
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node instanceof Element) observeRevealElements(node);
+        });
+      });
+    });
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+      document.documentElement.classList.remove("motion-ready");
+    };
+  }, []);
 
   useEffect(() => {
     if (!supabase) return;
@@ -408,7 +481,7 @@ function App() {
 
         <main>
           <section className="hero">
-            <div className="hero-copy">
+            <div className="hero-copy reveal-on-scroll">
               <p className="eyebrow"><span /> GOOD TEA. GOOD PEOPLE. GOOD MOMENTS.</p>
               <h1>A good cup.<br />A better <em>moment.</em></h1>
               <p className="hero-description">
@@ -416,14 +489,16 @@ function App() {
               </p>
               <div className="hero-actions">
                 <a className="button button-dark" href="#menu">Explore the menu <span>↓</span></a>
-                <span className="hero-note"><span className="star">✳</span> GOOD TEA. GOOD PEOPLE. GOOD MOMENTS.</span>
+                <a className="hero-instagram-link" href={instagramUrl} target="_blank" rel="noreferrer">
+                  <InstagramIcon size={17} /> Follow our café
+                </a>
               </div>
               <div className="hero-stamp" aria-hidden="true">
                 <span>BREWED<br />WITH<br />LOVE</span>
                 <span className="stamp-star">✳</span>
               </div>
             </div>
-            <div className="hero-image-wrap">
+            <div className="hero-image-wrap reveal-on-scroll">
               <img
                 className="hero-image"
                 src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1400&q=90"
@@ -439,11 +514,11 @@ function App() {
           </section>
 
           <section className="story-section section-wrap" id="story">
-            <div className="story-image">
+            <div className="story-image reveal-on-scroll">
               <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=85" alt="Freshly brewed coffee on a café table" />
               <div className="story-image-note">A pause, poured just for you.</div>
             </div>
-            <div className="story-copy">
+            <div className="story-copy reveal-on-scroll">
               <p className="eyebrow">GOOD TEA. GOOD PEOPLE. GOOD MOMENTS.</p>
               <h2>Not just a cup.<br />A <em>feeling.</em></h2>
               <p>
@@ -451,6 +526,10 @@ function App() {
                 comforting cup and a warm hello. Every drink is brewed with
                 love and served with a smile.
               </p>
+              <div className="story-brand-mark">
+                <img src="/sakj-signature-cafe-logo.png" alt="" loading="lazy" />
+                <span>SAKJ Signature Café<small>GOOD TEA. GOOD PEOPLE. GOOD MOMENTS.</small></span>
+              </div>
               <div className="founder-credit">
                 <span>FOUNDED WITH HEART</span>
                 <strong>Muthulakshmi</strong>
@@ -462,7 +541,7 @@ function App() {
 
           <section className="menu-section" id="menu">
             <div className="section-wrap">
-              <div className="section-heading">
+              <div className="section-heading reveal-on-scroll">
                 <div><p className="eyebrow">BREWED WITH LOVE, SERVED WITH SMILE</p><h2>Tea time, <em>your way.</em></h2></div>
                 <p>Eight café favourites, made for good moments together.</p>
               </div>
@@ -481,7 +560,7 @@ function App() {
               </div>
               <div className="menu-grid">
                 {visibleMenu.map((item) => (
-                  <article className="menu-card" key={item.id}>
+                  <article className="menu-card reveal-on-scroll" key={item.id}>
                     <div
                       className={item.image_url ? "menu-card-image" : "menu-card-image menu-card-image-placeholder"}
                       role={item.image_url ? undefined : "img"}
@@ -506,7 +585,7 @@ function App() {
           </section>
 
           <section className="visit-section section-wrap" id="visit">
-            <div className="visit-copy">
+            <div className="visit-copy reveal-on-scroll">
               <p className="eyebrow">YOUR SEAT IS WAITING</p>
               <h2>Drop by for<br />a <em>little lovely.</em></h2>
               <p>We'd love to be part of your day. Come on in, find your favourite corner, and let us make you something good.</p>
@@ -514,8 +593,12 @@ function App() {
                 <div><span className="detail-icon">⌖</span><span><strong>Find our café</strong><small>Add your café address here before launch</small></span></div>
                 <div><span className="detail-icon">◷</span><span><strong>Come by</strong><small>Add your opening hours here before launch</small></span></div>
               </div>
+              <a className="instagram-contact-link" href={instagramUrl} target="_blank" rel="noreferrer">
+                <InstagramIcon size={19} /> <span>Say hello on Instagram<small>@sakj_siganature_cafe</small></span>
+                <span className="instagram-contact-arrow" aria-hidden="true">↗</span>
+              </a>
             </div>
-            <div className="visit-image">
+            <div className="visit-image reveal-on-scroll">
               <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1100&q=85" alt="Cosy café seating in a sunlit room" loading="lazy" />
               <span className="visit-image-label">YOUR NEIGHBOURHOOD, YOUR CAFÉ.</span>
             </div>
@@ -533,7 +616,9 @@ function App() {
             <span className="footer-copy">© {new Date().getFullYear()} SAKJ Signature Café</span>
             <small className="developer-credit">Website by Mohanprasath</small>
           </span>
-          <a className="instagram-footer-link" href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>
+          <a className="instagram-footer-link" href={instagramUrl} target="_blank" rel="noreferrer">
+            <InstagramIcon size={15} /> Instagram
+          </a>
           <Link className="careers-footer-link" to="/careers">We're hiring ↗</Link>
           <Link className="admin-link" to="/admin/login">Staff sign in</Link>
         </footer>

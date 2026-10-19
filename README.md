@@ -58,7 +58,7 @@ Each of the eight supplied drink photos is included individually under `public/m
 
 ### Careers and Instagram
 
-The public recruitment page is available at `/careers`. It uses the supplied café/team photographs, lists the five open positions and eligibility information, and directs applications to Instagram. Applicants choose a position and are asked to mention it when messaging the café at [`@sakj_siganature_cafe`](https://www.instagram.com/sakj_siganature_cafe/). The same Instagram profile is linked from the site footer. There is no application form or hiring backend in this project.
+The public recruitment page is available at `/careers`. It uses the supplied café/team photographs, lists the five open positions and eligibility information, and directs applications to Instagram. Applicants choose a position and are asked to mention it when messaging the café at [`@sakj_siganature_cafe`](https://www.instagram.com/sakj_siganature_cafe/). Instagram contact links appear on the home and careers pages. Public pages use Outfit and Fraunces fonts, scroll-reveal transitions, and honor reduced-motion preferences. There is no application form or hiring backend in this project.
 
 ## 3. Deploy on a free provider subdomain
 
