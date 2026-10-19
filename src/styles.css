@@ -90,9 +90,8 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
 .category-tab.active { border-color: var(--green); background: var(--green); color: #fff; }
 .menu-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 19px; }
 .menu-card { overflow: hidden; background: #fbf9f3; }
-.menu-card-image { height: 188px; position: relative; overflow: hidden; background: #e7dfd1; }
-.menu-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
-.menu-card:hover .menu-card-image img { transform: scale(1.04); }
+.menu-card-image { aspect-ratio: 1; position: relative; overflow: hidden; background: #e7dfd1; }
+.menu-card-image img { width: 100%; height: 100%; object-fit: contain; }
 .menu-card-image-placeholder { display: grid; place-items: center; background: radial-gradient(ellipse at 50% 68%, #e3d5b8 0 16%, transparent 16.5%), linear-gradient(135deg, #e9e4d7, #d7dfd0); }
 .menu-card-image-placeholder::before { color: #69765d; content: "SAKJ  ·  SIGNATURE CAFÉ"; font: 600 9px var(--serif); letter-spacing: 2px; }
 .menu-category { position: absolute; top: 12px; left: 12px; padding: 6px 9px; background: #f7f3e9; color: #665c4e; font-size: 8px; }
@@ -256,7 +255,6 @@ h1 em, h2 em { color: #a65f40; font-weight: 500; }
   .category-tabs { gap: 6px; overflow-x: auto; padding-bottom: 2px; }
   .category-tab { padding: 9px 12px; white-space: nowrap; }
   .menu-grid { grid-template-columns: 1fr; gap: 14px; }
-  .menu-card-image { height: 205px; }
   .menu-card-content { padding: 16px; }
   .menu-card-content > p { min-height: auto; }
   .visit-section { grid-template-columns: 1fr; gap: 35px; padding-top: 70px; padding-bottom: 70px; }

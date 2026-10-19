@@ -17,7 +17,7 @@ export const starterMenu: MenuItem[] = [
     description: "Simple, comforting and perfect anytime.",
     price: 20,
     category: "Tea & more",
-    image_url: "",
+    image_url: "/menu/products/normal-tea.png",
     available: true,
   },
   {
@@ -26,7 +26,7 @@ export const starterMenu: MenuItem[] = [
     description: "Classic Indian masala chai made with finest spices.",
     price: 30,
     category: "Tea & more",
-    image_url: "",
+    image_url: "/menu/products/masala-tea.png",
     available: true,
   },
   {
@@ -35,7 +35,7 @@ export const starterMenu: MenuItem[] = [
     description: "Aromatic and soothing tea made with fresh ginger.",
     price: 30,
     category: "Tea & more",
-    image_url: "",
+    image_url: "/menu/products/ginger-tea.png",
     available: true,
   },
   {
@@ -44,7 +44,7 @@ export const starterMenu: MenuItem[] = [
     description: "Refreshing tea with a tangy lemon twist.",
     price: 30,
     category: "Tea & more",
-    image_url: "",
+    image_url: "/menu/products/lemon-tea.png",
     available: true,
   },
   {
@@ -53,7 +53,7 @@ export const starterMenu: MenuItem[] = [
     description: "Light, healthy and refreshing green tea.",
     price: 30,
     category: "Tea & more",
-    image_url: "",
+    image_url: "/menu/products/green-tea.png",
     available: true,
   },
   {
@@ -62,7 +62,7 @@ export const starterMenu: MenuItem[] = [
     description: "Traditional Kahwa with saffron, almonds and aromatic spices.",
     price: 30,
     category: "Tea & more",
-    image_url: "",
+    image_url: "/menu/products/kashmiri-kahwa.png",
     available: true,
   },
   {
@@ -71,7 +71,7 @@ export const starterMenu: MenuItem[] = [
     description: "Delightful and refreshing tea made from Sangu Poo.",
     price: 30,
     category: "Tea & more",
-    image_url: "",
+    image_url: "/menu/products/purple-tea-sangu-poo.png",
     available: true,
   },
   {
@@ -80,7 +80,7 @@ export const starterMenu: MenuItem[] = [
     description: "Rich, aromatic coffee to uplift your mood.",
     price: 30,
     category: "Coffee",
-    image_url: "",
+    image_url: "/menu/products/coffee.png",
     available: true,
   },
 ];

@@ -4,7 +4,7 @@ A React + TypeScript café website with a responsive menu, online ordering, Supa
 
 ## Before publishing
 
-Replace the sample café location and hours in `src/App.tsx` before launch. The eight café products and prices are defined in `src/lib/menu.ts` and `supabase/schema.sql`. The printed menu image is not present in this checkout, so product photos are intentionally left blank until the original artwork can be supplied. Existing hero/story photos and fonts still load from third-party hosts.
+Replace the sample café location and hours in `src/App.tsx` before launch. The eight café products and prices are defined in `src/lib/menu.ts` and `supabase/schema.sql`. The eight supplied product photos are kept as individual original PNGs in `public/menu/products/`; the square menu cards display them without cropping. Existing hero/story photos and fonts still load from third-party hosts.
 
 The project has not been published by this repository. A hosting URL only exists after you create and deploy a Cloudflare Pages project; availability of `sakj-signature-cafe.pages.dev` cannot be reserved or guaranteed in advance.
 
@@ -52,9 +52,9 @@ The public site can be previewed without Supabase; the eight-item SAKJ menu is s
 
 Before deploying this menu update, open **SQL Editor → New query**, copy the contents of `supabase/menu_migration.sql`, and choose **Run**. It updates the six existing sample product IDs, adds the two missing café products, and removes other menu rows so the public menu contains exactly these eight items. This changes menu rows only; order records and their saved item details are not changed. If you have added custom menu products that you want to keep, export them before running the migration.
 
-### Add the printed menu photographs
+### Product photographs
 
-The supplied JPEG is not in the project. Place the original file named `WhatsApp Image 2026-10-16 at 10.54.53 AM (1).jpeg` in `public\menu\reference\`. Crop each of its eight product photos into an individual optimized image, excluding the poster text, prices, and decorative borders. Do not use the full poster as a product photo. Save the individual image assets under `public\menu\products\`, then set each corresponding `image_url` to its deployed root-relative path (for example, `/menu/products/<your-chosen-file-name>.webp`) in `src/lib/menu.ts`, `supabase/schema.sql`, and `supabase/menu_migration.sql`. Run the migration again after updating it so the Supabase menu receives those image paths. No image-upload feature exists in the current admin dashboard.
+Each of the eight supplied drink photos is included individually under `public/menu/products/` in menu order. Their root-relative URLs are set in `src/lib/menu.ts`, `supabase/schema.sql`, and `supabase/menu_migration.sql`. The site uses the local product-photo path as a fallback if the Supabase row's `image_url` is blank. Run the migration when applying the menu update to store these photo paths in Supabase as well. No image-upload feature exists in the current admin dashboard.
 
 ## 3. Deploy on a free provider subdomain
 

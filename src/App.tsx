@@ -47,7 +47,18 @@ function App() {
           console.error("Could not load the café menu:", error.message);
           return;
         }
-        if (data?.length) setMenu(data as MenuItem[]);
+        if (data?.length) {
+          setMenu(
+            data.map((item) => ({
+              ...item,
+              image_url:
+                item.image_url ||
+                starterMenu.find((starterItem) => starterItem.id === item.id)
+                  ?.image_url ||
+                "",
+            })) as MenuItem[],
+          );
+        }
       });
   }, []);
 
